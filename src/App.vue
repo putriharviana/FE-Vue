@@ -24,7 +24,7 @@ export default {
 }
 .btn {
   padding: 8px;
-  font-size: 2rem !important;
+  font-size: 1rem !important;
   margin: 6px;
   width: 290px !important;
 }
