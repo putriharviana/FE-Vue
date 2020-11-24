@@ -68,7 +68,7 @@ export default {
       this.resetButton = true;
     },
     resetTimer() {
-      this.totalTime = 20 * 60;
+      this.totalTime = 25 * 60;
       clearInterval(this.timer);
       this.timer = null;
       this.resetButton = false;
