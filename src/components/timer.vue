@@ -53,13 +53,14 @@ export default {
   data() {
     return {
       timer: null,
-      totalTime: 25 * 60,
+      totalTime: 0,
       resetButton: false,
     };
   },
   // ========================
   methods: {
     startTimer() {
+      this.totalTime = 25 * 60;
       this.timer = setInterval(() => this.countdown(), 1000);
       this.resetButton = true;
     },
@@ -74,7 +75,11 @@ export default {
       this.resetButton = false;
     },
     helper(time) {
-      return (time < 10 ? "0" : "") + time;
+      if (this.resetButton == false && this.totalTime == 0) {
+        return time;
+      } else {
+        return (time < 10 ? "0" : "") + time;
+      }
     },
     countdown() {
       if (this.totalTime >= 1) {
@@ -92,7 +97,7 @@ export default {
       return this.helper(minutes);
     },
     seconds() {
-      const seconds = this.totalTime - this.minutes * 60;
+      const seconds = this.totalTime % 60;
       return this.helper(seconds);
     },
   },
